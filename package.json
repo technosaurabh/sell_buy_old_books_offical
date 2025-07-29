@@ -1,0 +1,25 @@
+{
+  "name": "sell_buy_old_books_official",
+  "version": "1.0.0",
+  "description": "this website is to sell and buy old books",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/technosaurabh/sell_buy_old_books_offical.git"
+  },
+  "keywords": [
+    "books",
+    "sell",
+    "buy",
+    "online"
+  ],
+  "author": "saurabh kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/technosaurabh/sell_buy_old_books_offical/issues"
+  },
+  "homepage": "https://github.com/technosaurabh/sell_buy_old_books_offical#readme"
+}
