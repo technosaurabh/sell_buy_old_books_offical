@@ -38,7 +38,7 @@ bookRoutes.post('/book/create', userAuth, upload.single('file'), async(req,res,n
         category,
         buyDate,
         edition,
-        photoURL : photoPath,
+        photoURL : photoPath == null ? 'uploads/dummyimage.png' : photoPath,
         fromUserId : fromUserId,
     }
         await book.create(body);
@@ -79,14 +79,14 @@ bookRoutes.delete('/book/delete', userAuth,  async(req, res, next) => {
     // if status is sold then you dont able to delete
 
     if(bookFeild.status != 'active'){
-        return sendSuccess(false, true, res, {}, "Book cannot be deleted as it has already been sold", 400 )
+        return sendSuccess(false, true, res, {}, "Book cannot be deleted as it has already been sold", 500 )
     }
 
      // if book is delete the photoURL file must be deleted
-    await fs.unlink(bookFeild.photoURL, function(err){})
+    //await fs.unlink(bookFeild.photoURL, function(err){})
 
     await book.findByIdAndDelete(bookId);
-    return sendSuccess(true, false, res, {}, "Book deleted successfully", 200);
+    return sendSuccess(true, true, res, {}, "Book deleted successfully", 200);
 
 
     // connection (request) -- must not be in pending state -- TODO
@@ -216,7 +216,7 @@ bookRoutes.patch('/book/updatephoto', upload.single('file'),  userAuth, async(re
         if(!bookFeild){
             return sendSuccess(false, true, res, {}, "Book Not Found", 400)
         }
-        await fs.unlink(bookFeild.photoURL, function(err){})
+       // await fs.unlink(bookFeild.photoURL, function(err){}) 
         const photoPath = req.file ? req?.file?.path : null;
          bookFeild.photoURL = photoPath;
          bookFeild.save();
@@ -234,8 +234,8 @@ bookRoutes.get('/book/feed', userAuth, async(req,res, next)=> {
     try {
 
         const blockedBookIds = await connection.find({
-               fromUserId: req.user._id
-    
+               fromUserId: req.user._id,
+               status : { $ne: 'rejected' }, 
           }).distinct('bookId');
 
         const feed = await book.find({
@@ -260,6 +260,26 @@ bookRoutes.get('/book/feed', userAuth, async(req,res, next)=> {
     }
 })
 
+// my book api
+bookRoutes.get('/book/mybooks', userAuth, async(req,res, next)=> {
+    try {
+
+        const books = await book.find({
+               fromUserId: req.user._id
+    
+          })
+
+      
+        
+
+
+        return sendSuccess(true, true, res, books, "Book Fetched Sucesfully", 200)
+
+    } catch (error) {
+        return sendSuccess(false, true, res, {}, error.message, 200)
+        
+    }
+})
 
 
 

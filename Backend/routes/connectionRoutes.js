@@ -35,6 +35,7 @@ connectionRoute.post('/request/sendConnection', userAuth, async (req,res, next) 
         const isAlreadyConnection = await connection.findOne({
             fromUserId : fromUserId,
             bookId : bookId,
+            status : {$ne : 'rejected'}
         })
 
         console.log(isAlreadyConnection, "is already connected");
@@ -111,8 +112,10 @@ connectionRoute.patch('/request/reviewConnection', userAuth, async (req,res, nex
 
     await isConnectionValid.save();
 
+    if(status == 'accepted'){
     isBookValid.status = 'sold';
     isBookValid.save();
+    }
 
     if(status == 'accepted'){
         rejectOtherConnection(loginedUser, isBookValid)
@@ -153,7 +156,7 @@ connectionRoute.get('/request/pendingRequest', userAuth, async (req,res,next) =>
         const pendingRequest = await connection.find({
             toUserId : req.user._id,
             status : 'pending',
-        }).populate('fromUserId', showUserData).populate('bookId', 'title description')
+        }).populate('fromUserId', showUserData).populate('bookId', {})
         return sendSuccess(true, true, res, pendingRequest, "Pending Request Fetched Sucessfully", 200);
     } catch (error) {
         return sendSuccess(false, true, res, {}, error.message, 400);
@@ -167,13 +170,9 @@ connectionRoute.get('/request/onGoingPendingConnection', userAuth, async(req, re
         const pendingRequest = await connection.find({
             fromUserId : req.user._id,
             status : 'pending',
-        })
-
+        }).populate('bookId', {}).populate('toUserId', 'firstName lastName emailId phoneNumber address geneder')
 
         return sendSuccess(true, true, res, pendingRequest, "On Going Request Fetched Sucessfully", 200);
-
-
-
     } catch (error) {
         return sendSuccess(false, true, res, {}, error.message, 400);
     }
@@ -186,8 +185,9 @@ connectionRoute.get('/request/onGoingPendingConnection', userAuth, async(req, re
 connectionRoute.get('/request/connections', userAuth, async(req, res, next)=> {
     try {
         const connections = await connection.find({
-            fromUserId : req.user._id
-        })
+            fromUserId : req.user._id,
+            status: { $ne: "pending" }
+        }).populate('toUserId', 'firstName lastName emailId').populate('bookId', {})
         return sendSuccess(true, true, res, connections, "Connections Fetched Succesfully", 200);
 
     } catch (error) {

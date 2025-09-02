@@ -45,15 +45,25 @@ authRouter.post('/login', async (req, res, next) => {
         let user = await User.findOne({emailId: emailId})
 
         if(!user){
-            return res.status(400).send("Invalid Credentials");
+            // return res.status(400).send("Invalid Credentials");
+        return sendSuccess(false, true, res, {}, "Invalid Credentials", 400)
+
         }
         const isPasswordValid  = await bcrypt.compare(password, user.password)
         if(!isPasswordValid){
-            return res.status(400).send("Invalid Credentials");
-        }
-        const jwtToken = await jwt.sign({ emailId: emailId }, secret_key);
+        return sendSuccess(false, true, res, {}, "Invalid Credentials", 400)
 
-        res.cookie('token' , jwtToken);
+        }
+        const jwtToken = await jwt.sign({ emailId: emailId }, secret_key, {expiresIn:'1d'});
+
+        res.cookie('token' , jwtToken, 
+            {
+                httpOnly: true,
+                secure: false,   // true in production
+                sameSite: "lax",  // "none" in production
+                maxAge: 60 * 1000000
+            }
+        );
 
         user = user.toObject(); // convert Mongoose doc to plain object
 
@@ -91,7 +101,7 @@ authRouter.delete('/delete', userAuth, async(req,res, next) => {
 authRouter.get('/profile', userAuth, async(req, res, next)=> {
     try {
         user = req.user.toObject();
-        fieldsToRemove.forEach(keys => delete user[keys])
+        ['password', '__v', 'status'].forEach(keys => delete user[keys])
         sendSuccess(true, true, res, user, 'Profile Fetched Successfully', 200)
     }
     catch(error){

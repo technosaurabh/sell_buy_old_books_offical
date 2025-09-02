@@ -46,7 +46,6 @@ const bookSchema = mongoose.Schema({
     },
     photoURL : {
         type: String,
-        required : true,
     },
     edition : {
         type : String,

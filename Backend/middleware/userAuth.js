@@ -1,6 +1,7 @@
 const secret_key = "BuySell@123"
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+const { sendSuccess } = require('../utils/handleResponse');
 
 
 async function userAuth(req, res, next) {
@@ -23,7 +24,7 @@ async function userAuth(req, res, next) {
 
     next()
     } catch (error) {
-       res.status(400).send(error.message)
+       sendSuccess(false, false, res, {}, error.message, 200)
     }
   
 }
