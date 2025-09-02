@@ -1,0 +1,38 @@
+<!-- book-card.component.html -->
+
+<div class=" mt-2" style=" ">
+    <div style=" display: flex; flex-wrap: wrap; column-gap: 0.5rem;">
+
+        <div *ngFor="let book of bookFeed" style="" class="book-card mt-2">
+            <div class="book-image">
+              <img [src]="baseUrl + book.photoURL"  alt="Book Image">
+              <span class="status "  [ngClass]="book.status === 'active' ? 'active' : 'sold'">{{book.status}}</span>
+            </div>
+          
+            <div class="book-details">
+              <h2 class="title">{{book.title}}</h2>
+              <p class="description">{{book.description}}</p>
+          
+              <div class="meta">
+                <p><strong>Condition:</strong> {{book.condition}}</p>
+                <p><strong>Edition:</strong> {{book.edition}}</p>
+                <p><strong>Category:</strong> {{book.category}}</p>
+                <p><strong>Buy Date:</strong> {{book.buyDate | date : 'dd-MMMM-yyyy'}}</p>
+              </div>
+          
+              <div class="footer">
+                <div class="price">₹{{book.price}}</div>
+                <div class="rating">⭐ {{book.startRating}}</div>
+              </div>
+        
+              <div class="mt-2">
+                <button (click)="sendRequest(book)" class="btn btn-success w-100">Send Request</button>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+
+</div>
+  

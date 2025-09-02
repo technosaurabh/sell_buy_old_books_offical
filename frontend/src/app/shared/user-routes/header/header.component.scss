@@ -1,0 +1,19 @@
+@import url(../../../../assets/SCSS/base.scss);
+
+
+.header{
+    position: relative;
+    background: linear-gradient(270deg, #FF6B6B, #FFD93D);
+    .lgoo{
+        border: 2px solid red;
+        width: 1rem !important;
+    }
+}
+
+
+
+
+a{
+    text-decoration:  none;
+    color: black;
+}

@@ -1,0 +1,178 @@
+<form  nz-form [formGroup]="addNewBookFrm" class="login-form transparent-form mt-3" (ngSubmit)="submitForm()">
+
+    <h4 class="form-title">Add New Book</h4>
+    
+    <div class="card">
+
+        <div class="row">
+            <div class="col-3">
+                <nz-form-item>
+                    <nz-form-label  nzRequired>Title</nz-form-label>
+                    <nz-form-control>
+                      <nz-input-group nzSize="large" >
+                        <input type="text" nz-input formControlName="title" placeholder="Enter Title" />
+                      </nz-input-group>
+                     
+                    </nz-form-control>
+                  </nz-form-item>
+            </div>
+
+            <div class="col-3">
+                <nz-form-item>
+                    <nz-form-label  nzRequired>Description</nz-form-label>
+                    <nz-form-control>
+                      <nz-input-group nzSize="large" >
+                        <input type="text" nz-input formControlName="description" placeholder="Enter description" />
+                      </nz-input-group>
+                     
+                    </nz-form-control>
+                  </nz-form-item>
+            </div>
+
+
+            <div class="col-3">
+                <nz-form-item>
+                    <nz-form-label  nzRequired>Condition</nz-form-label>
+                    <nz-form-control>
+                     
+                        <nz-input-group nzSize="large">
+                      <nz-select id="gender" [nzSize]="dropdownSize" formControlName="condition" nzPlaceHolder="Select a option">
+                        <nz-option nzValue="good" nzLabel="good"></nz-option>
+                        <nz-option nzValue="bad" nzLabel="bad"></nz-option>
+                        <nz-option nzValue="worst" nzLabel="worst"></nz-option>
+
+                      </nz-select>
+                    </nz-input-group>
+                     
+                    </nz-form-control>
+                  </nz-form-item>
+            </div>
+
+            <div class="col-3">
+                <nz-form-item>
+                    <nz-form-label  nzRequired>Price</nz-form-label>
+                    <nz-form-control>
+                     
+
+
+                        <nz-input-group nzSize="large">
+                            <input  type="number" nz-input formControlName="price" placeholder="Enter Price" />
+                          </nz-input-group>
+                     
+                     
+                    </nz-form-control>
+                  </nz-form-item>
+            </div>
+
+        </div>
+
+
+
+        <div class="row mt-3">
+        
+
+            <div class="col-3">
+                <nz-form-item>
+                    <nz-form-label  nzRequired>Category</nz-form-label>
+                    <nz-form-control>
+                        <nz-input-group nzSize="large" >
+                        <nz-select id="gender" [nzSize]="dropdownSize" formControlName="category" nzPlaceHolder="Select Category">
+                            <nz-option *ngFor="let catgeory of categoryData" nzValue={{catgeory._id}} nzLabel={{catgeory.categoryName}}></nz-option>
+                          </nz-select>
+                    </nz-input-group>
+                     
+                     
+                    </nz-form-control>
+                  </nz-form-item>
+            </div>
+
+
+            <div class="col-3">
+                <nz-form-item>
+                    <nz-form-label  nzRequired>Edition</nz-form-label>
+                    <nz-form-control>
+                     
+
+                      <nz-input-group nzSize="large">
+                        <input  type="number" nz-input formControlName="edition" placeholder="Enter Edition" />
+                      </nz-input-group>
+
+                      
+                     
+                     
+                    </nz-form-control>
+                  </nz-form-item>
+            </div>
+
+            <div class="col-3">
+                <nz-form-item>
+                    <nz-form-label  nzRequired>Buy Date</nz-form-label>
+                    <nz-form-control>
+                     
+
+                        <nz-input-group nzSize="large">
+                            <nz-date-picker   formControlName="buyDate" [nzSize]="Datesize" (ngModelChange)="onChange($event)"></nz-date-picker>
+
+                    </nz-input-group>
+                     
+                     
+                    </nz-form-control>
+                  </nz-form-item>
+            </div>
+
+
+        </div>
+
+
+        <div *ngIf="editBookId == null " class="row mt-3">
+
+            <div class="col">
+            
+                    <nz-upload class="col"
+                    nzListType="picture-card"
+                    [(nzFileList)]="fileList"
+                    [nzBeforeUpload]="beforeUpload"
+                    [nzShowButton]="fileList.length < 1"
+                    [nzPreview]="handlePreview"
+                    (nzChange)="handleFileChange($event)"
+                  >
+                    <div >
+                      <nz-icon nzType="plus" />
+                      <div style="margin-top: 8px">Upload</div>
+                    </div>
+                  </nz-upload>
+               
+            </div>
+
+        </div>
+
+       
+
+          
+
+       
+           
+
+
+
+
+        
+
+        
+    
+    
+         
+    
+        <div style="display: flex; justify-content: flex-end">
+            <div>
+        <button [disabled]="addNewBookFrm.invalid" nz-button class="login-form-button mt-3" [nzSize]="size" [nzType]="'primary'">{{editBookId == null ? 'Submit' : 'Update'}}</button>
+            </div>
+        </div>
+    
+    </div>
+
+ 
+  
+  
+
+  </form>

@@ -1,0 +1,97 @@
+.login-form {
+    max-width: 300px;
+  }
+
+  .login-form-margin {
+    margin-bottom: 16px;
+  }
+
+  .login-form-forgot {
+    float: right;
+  }
+
+  .login-form-button {
+    width: 100%;
+  }
+
+
+  /* Full page height */
+.login-page {
+    height: 100vh;
+  }
+  
+  /* Left side image */
+  .login-bg {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // background: #f4f4f4;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-bg img {
+    width: 80%;
+    // max-width: 600px;
+  }
+  
+  /* Right side form container */
+  .login-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 2rem;
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Form styling */
+  .login-form {
+    width: 100%;
+    max-width: 450px;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  }
+  
+  /* Title */
+  .form-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    color: #1890ff;
+  }
+  
+  /* Buttons */
+  .login-form-button {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  /* Register link */
+  .register-link {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .register-link a {
+    color: #1890ff;
+  }
+  
+
+  .transparent-form {
+    background-color: rgba(255, 255, 255, 0); /* Fully transparent */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: none; /* remove shadow if needed */
+  }
+  
+  .transparent-form input {
+    background-color: rgba(255, 255, 255, 0.4); /* Slightly transparent input */
+    border: none;
+  }
+  
+  .transparent-form input:focus {
+    background-color: rgba(255, 255, 255, 0.6);
+  }

@@ -1,0 +1,22 @@
+.card{
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+
+
+nz-date-picker {
+    margin: 0 8px 12px 0;
+  }
+
+  ::ng-deep .ant-select{
+    width: 100%;
+}
+
+  ::ng-deep .ant-picker {
+    padding: 8px 17px 8px;
+    width: 100% !important;
+  }
+

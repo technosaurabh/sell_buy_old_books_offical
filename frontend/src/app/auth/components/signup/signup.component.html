@@ -1,0 +1,113 @@
+<div class="row login-page">
+    <!-- Left side background -->
+    <div style="position: relative;" class="col-8 login-bg" >
+        <div style="position: absolute; right: 25%; bottom: 50%; text-align: center;">
+            <p class="fs-4">Sell Buy</p>
+            <h4 class="fs-2">Old Books</h4>
+        </div>
+        <div style="display: flex; justify-content: center;">
+             <img src="../../../../assets/images/login/background.png" alt="Login background">
+        </div>
+    </div>
+  
+    <!-- Right side form -->
+    <div  style="background: linear-gradient(90deg,rgba(129, 227, 217, 0.3) 0%, rgba(165, 232, 202, 0.5) 100%);" class="col-4 login-form-container">
+      <form  nz-form [formGroup]="validateForm" class="login-form transparent-form" (ngSubmit)="submitForm()">
+        <div class="mb-3 me-3" style="display: flex; justify-content: center;">
+        <img width="60%" src="../../../../assets/images/login/reading-read.gif" alt="">
+        </div>
+        <h2 class="form-title">Sign up</h2>
+  
+        <nz-form-item>
+            <nz-form-control>
+              <nz-input-group nzSize="large" [nzPrefix]="firstName">
+                <input type="text" nz-input formControlName="firstName" placeholder="Enter Your First Name" />
+              </nz-input-group>
+              <ng-template #firstName>
+                <i class="bi bi-alphabet"></i>
+            </ng-template>
+           
+            </nz-form-control>
+          </nz-form-item>
+
+
+          <nz-form-item>
+            <nz-form-control>
+              <nz-input-group nzSize="large" [nzPrefix]="lastName">
+                <input type="text" nz-input formControlName="lastName" placeholder="Enter Your Last Name" />
+              </nz-input-group>
+              <ng-template #lastName>
+                <i class="bi bi-alphabet"></i>
+            </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control>
+              <nz-input-group nzSize="large" [nzPrefix]="emailId">
+                <input type="text" nz-input formControlName="emailId" placeholder="Enter Your Email Id" />
+              </nz-input-group>
+              <ng-template #emailId>
+                <i class="bi bi-envelope"></i>
+            </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control>
+              <nz-input-group nzSize="large" [nzPrefix]="phoneNumber">
+                <input type="number" nz-input formControlName="phoneNumber" placeholder="Enter Your Phone Number" />
+              </nz-input-group>
+              <ng-template #phoneNumber>
+                <i class="bi bi-telephone"></i>
+            </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+      
+          <nz-form-item>
+            <nz-form-control>
+              <nz-input-group nzSize="large" [nzPrefix]="address">
+                <input type="text" nz-input formControlName="address" placeholder="Enter Your Address" />
+              </nz-input-group>
+              <ng-template #address>
+                <i class="bi bi-house"></i>
+            </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control>
+              <nz-input-group nzSize="large" [nzPrefix]="gender">
+                <input type="text" nz-input formControlName="gender" placeholder="Enter Your Gender" />
+              </nz-input-group>
+              <ng-template #gender>
+                <i class="bi bi-gender-male"></i>
+            </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+         
+          <nz-form-item>
+            <nz-form-control>
+              <nz-input-group nzSize="large" [nzPrefix]="password">
+                <input type="text" nz-input formControlName="password" placeholder="Enter Your Password" />
+              </nz-input-group>
+              <ng-template #password>
+                <i class="bi bi-lock"></i>
+            </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+
+
+        
+  
+  
+        <button [disabled]="validateForm.invalid" nz-button class="login-form-button" [nzSize]="size" [nzType]="'primary'">Sing up</button>
+        <div class="register-link">
+          Or log <a [routerLink]="['']" >in Now!</a>
+        </div>
+      
+
+      </form>
+    </div>
+  </div>
+  

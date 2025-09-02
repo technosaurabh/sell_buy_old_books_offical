@@ -1,0 +1,54 @@
+<div class="row login-page">
+    <!-- Left side background -->
+    <div style="position: relative;" class="col-8 login-bg" >
+        <div style="position: absolute; right: 25%; bottom: 50%; text-align: center;">
+            <p class="fs-4">Sell Buy</p>
+            <h4 class="fs-2">Old Books</h4>
+        </div>
+        <div style="display: flex; justify-content: center;">
+             <img src="../../../../assets/images/login/background.png" alt="Login background">
+        </div>
+    </div>
+  
+    <!-- Right side form -->
+    <div  style="background: linear-gradient(90deg,rgba(129, 227, 217, 0.3) 0%, rgba(165, 232, 202, 0.5) 100%);" class="col-4 login-form-container">
+      <form  nz-form [formGroup]="validateForm" class="login-form transparent-form" (ngSubmit)="submitForm()">
+        <div class="mb-3 me-3" style="display: flex; justify-content: center;">
+        <img width="60%" src="../../../../assets/images/login/reading-read.gif" alt="">
+        </div>
+        <h2 class="form-title">Login</h2>
+  
+        <nz-form-item>
+            <nz-form-control>
+              <nz-input-group nzSize="large" [nzPrefix]="email">
+                <input type="text" nz-input formControlName="emailId" placeholder="Email Id" />
+              </nz-input-group>
+              <ng-template #email>
+                <i class="bi bi-person-circle"></i>
+            </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+
+
+          <nz-form-item>
+            <nz-form-control>
+              <nz-input-group nzSize="large" [nzPrefix]="password">
+                <input type="password" nz-input formControlName="password" placeholder="Password" />
+              </nz-input-group>
+              <ng-template #password>
+                <i class="bi bi-lock-fill"></i>
+            </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+  
+  
+        <button [disabled]="validateForm.invalid" nz-button class="login-form-button" [nzSize]="size" [nzType]="'primary'">Log in</button>
+        <div class="register-link">
+          Or <a [routerLink]="['/singup']" >register now!</a>
+        </div>
+      
+
+      </form>
+    </div>
+  </div>
+  

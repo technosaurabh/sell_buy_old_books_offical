@@ -1,0 +1,19 @@
+<div class="container ">
+    <div class="row h-100 align-items-center">
+        <div class="col d-flex justify-content-center me-5">
+            <img [src]=userProfilePic alt="">
+        </div>
+        <div class="col">
+            <div class="mb-4">
+            <h4>Hello, <span>{{userProfiledData.firstName}} {{userProfiledData.lastName}}</span></h4>
+            </div>
+            <div>
+                <p><strong>Email:</strong> {{ userProfiledData.emailId }}</p>
+                <p><strong>Phone:</strong> {{ userProfiledData.phoneNumber }}</p>
+                <p><strong>Address:</strong> {{ userProfiledData.address }}</p>
+                <p><strong>Gender:</strong> {{ userProfiledData.gender }}</p>
+            </div>
+            
+        </div>
+    </div>
+</div>

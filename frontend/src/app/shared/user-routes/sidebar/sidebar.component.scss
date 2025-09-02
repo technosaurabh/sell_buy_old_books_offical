@@ -1,0 +1,41 @@
+
+::ng-deep .ant-menu-inline .ant-menu-item::after{
+    border-right:4px solid  #FF6B6B !important;
+}
+
+::ng-deep .ant-menu-item .anticon + span{
+    color: black;
+}
+
+::ng-deep .ant-menu-item .anticon + span:hover{
+    // color:  #FF6B6B;
+}
+
+::ng-deep .ant-menu-item-selected:hover{
+    color: black !important;
+}
+
+
+::ng-deep .ant-menu-item-selected{
+    color: black !important;
+    // font-size: 1rem;
+}
+
+::ng-deep .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+    background-color:  #FFD93D !important;
+}
+
+ul[nz-menu][nzMode="inline"] .ant-menu-item:hover .anticon {
+    color: black !important;
+  }
+
+
+  /* Change li background to red on hover */
+ul[nz-menu] li[nz-menu-item]:hover {
+    background-color: rgba(255, 217, 61, 0.3) !important; /* 0.7 = 70% */
+  }
+  
+  /* Change icon color to black when parent li is hovered */
+  ul[nz-menu] li[nz-menu-item]:hover nz-icon {
+    color: black !important;
+  }

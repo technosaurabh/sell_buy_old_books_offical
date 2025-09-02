@@ -1,5 +1,5 @@
 {
-  "name": "buy-sell-old-books-fe",
+  "name": "sell-buy-old-books",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -18,6 +18,12 @@
     "@angular/platform-browser": "^19.1.0",
     "@angular/platform-browser-dynamic": "^19.1.0",
     "@angular/router": "^19.1.0",
+    "@ant-design/icons-angular": "^19.0.0",
+    "@ngx-loading-bar/core": "^7.0.0",
+    "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1",
+    "ng-zorro-antd": "^19.2.2",
+    "ngx-toastr": "^19.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
