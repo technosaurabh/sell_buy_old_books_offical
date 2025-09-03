@@ -14,7 +14,7 @@ export class MyBooksComponent {
   private modal = inject(NzModalService);
   private toaster = inject(ToastrService);
   bookFeed : any;
-  baseUrl : any = 'http://localhost:3000/';
+  baseUrl : any = 'http://82.29.165.214:3000/';
   isVisible = false;
   fileList: NzUploadFile[] = [];
   previewImage: string | undefined = '';
@@ -26,7 +26,7 @@ export class MyBooksComponent {
   }
 
   getBook(){
-    this.http.get('http://localhost:3000/book/mybooks', {withCredentials : true})
+    this.http.get('http://82.29.165.214:3000/book/mybooks', {withCredentials : true})
     .subscribe({
       next: (response:any) => {
         this.bookFeed = response.data
@@ -127,7 +127,7 @@ export class MyBooksComponent {
     formData.append('file', this.uploadedFile);
 
 
-    this.http.patch('http://localhost:3000/book/updatephoto', formData , {withCredentials : true})
+    this.http.patch('http://82.29.165.214:3000/book/updatephoto', formData , {withCredentials : true})
     .subscribe({
       next: (response:any) => {
         if(response.success){

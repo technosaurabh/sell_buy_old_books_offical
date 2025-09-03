@@ -18,7 +18,7 @@ export class CategoryComponent {
 
 
   getCategory(){
-    this.http.get('http://localhost:3000/category', {withCredentials : true})
+    this.http.get('http://82.29.165.214:3000/category', {withCredentials : true})
     .subscribe({
       next: (response:any) => {
         this.categoryData = response.data;

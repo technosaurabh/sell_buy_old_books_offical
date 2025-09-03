@@ -31,7 +31,7 @@ export class SignupComponent {
     if (this.validateForm.valid) {
       console.log('submit', this.validateForm.value);
       const payload = this.validateForm.value;
-      this.http.post('http://localhost:3000/register', payload, {withCredentials : true})
+      this.http.post('http://82.29.165.214:3000/register', payload, {withCredentials : true})
       .subscribe({
         next: (response: any) => {
           console.log('Login Success ✅', response);

@@ -14,7 +14,7 @@ export class IncommingRequestComponent {
   private modal = inject(NzModalService);
   private toaster = inject(ToastrService);
   incomingRequest : any;
-  baseUrl : any = 'http://localhost:3000/';
+  baseUrl : any = 'http://82.29.165.214:3000/';
  
 
   ngOnInit(){
@@ -22,7 +22,7 @@ export class IncommingRequestComponent {
   }
 
   getBook(){
-    this.http.get('http://localhost:3000/request/pendingRequest', {withCredentials : true})
+    this.http.get('http://82.29.165.214:3000/request/pendingRequest', {withCredentials : true})
     .subscribe({
       next: (response:any) => {
         this.incomingRequest = response.data
@@ -41,7 +41,7 @@ export class IncommingRequestComponent {
       status : action
     }
 
-    this.http.patch('http://localhost:3000/request/reviewConnection?id=' + book?._id, body,  {withCredentials : true})
+    this.http.patch('http://82.29.165.214:3000/request/reviewConnection?id=' + book?._id, body,  {withCredentials : true})
     .subscribe({
       next: (response:any) => {
 

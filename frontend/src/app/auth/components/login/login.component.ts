@@ -30,7 +30,7 @@ export class LoginComponent {
       console.log('submit', this.validateForm.value);
       
       const payload = this.validateForm.value;
-      this.http.post('http://localhost:3000/login', payload, {withCredentials : true})
+      this.http.post('http://82.29.165.214:3000/login', payload, {withCredentials : true})
       .subscribe({
         next: (response:any) => {
           if(response.status){

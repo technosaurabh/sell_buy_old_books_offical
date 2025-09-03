@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class OutgoingRequestComponent {
   private http  = inject(HttpClient)
-  baseUrl : any = 'http://localhost:3000/';
+  baseUrl : any = 'http://82.29.165.214:3000/';
   private toaster = inject(ToastrService);
   outGoingConnectionData : any;
 
@@ -20,7 +20,7 @@ export class OutgoingRequestComponent {
    }
 
   outGoingConnection(){
-    this.http.get('http://localhost:3000/request/onGoingPendingConnection', {withCredentials : true})
+    this.http.get('http://82.29.165.214:3000/request/onGoingPendingConnection', {withCredentials : true})
     .subscribe({
       next: (response:any) => {
         if(response.success){

@@ -47,7 +47,7 @@ private route : ActivatedRoute){}
 
 
   getCategory(){
-    this.http.get('http://localhost:3000/category', {withCredentials : true})
+    this.http.get('http://82.29.165.214:3000/category', {withCredentials : true})
     .subscribe({
       next: (response:any) => {
         this.categoryData = response.data;
@@ -58,7 +58,7 @@ private route : ActivatedRoute){}
   }
 
   getParticularBookData(){
-    this.http.get('http://localhost:3000/book/view?id=' + this.editBookId , {withCredentials : true})
+    this.http.get('http://82.29.165.214:3000/book/view?id=' + this.editBookId , {withCredentials : true})
     .subscribe({
       next: (response:any) => {
         if(response.status){
@@ -136,7 +136,7 @@ setBookValue(){
 
 
       if(this.editBookId == null) {
-        this.http.post( 'http://localhost:3000/book/create',  formData, {withCredentials : true})
+        this.http.post( 'http://82.29.165.214:3000/book/create',  formData, {withCredentials : true})
         .subscribe({
           next: (response:any) => {
   
@@ -157,7 +157,7 @@ setBookValue(){
       }else{
 
         delete this.addNewBookFrm.value.file;
-        this.http.patch( 'http://localhost:3000/book/update?id=' + this.editBookId ,  this.addNewBookFrm.value, {withCredentials : true})
+        this.http.patch( 'http://82.29.165.214:3000/book/update?id=' + this.editBookId ,  this.addNewBookFrm.value, {withCredentials : true})
         .subscribe({
           next: (response:any) => {
             if(response.status){

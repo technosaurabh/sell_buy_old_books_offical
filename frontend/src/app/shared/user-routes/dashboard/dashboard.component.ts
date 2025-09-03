@@ -11,13 +11,13 @@ export class DashboardComponent {
   private http = inject(HttpClient);
   private toaster = inject(ToastrService)
   bookFeed : any;
-  baseUrl : any = 'http://localhost:3000/'
+  baseUrl : any = 'http://82.29.165.214:3000/'
   ngOnInit(){
   this.getBookFeed();
   }
 
   getBookFeed(){
-    this.http.get('http://localhost:3000/book/feed', {withCredentials : true})
+    this.http.get('http://82.29.165.214:3000/book/feed', {withCredentials : true})
     .subscribe({
       next: (response:any) => {
         this.bookFeed = response.data
@@ -30,7 +30,7 @@ export class DashboardComponent {
 
   sendRequest(book:any){
     let bookId = book._id;
-    this.http.post('http://localhost:3000/request/sendconnection?bookId=' + bookId, {},  {withCredentials : true})
+    this.http.post('http://82.29.165.214:3000/request/sendconnection?bookId=' + bookId, {},  {withCredentials : true})
     .subscribe({
       next: (response:any) => {
 

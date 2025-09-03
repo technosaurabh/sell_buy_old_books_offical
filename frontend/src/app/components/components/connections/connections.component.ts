@@ -14,7 +14,7 @@ export class ConnectionsComponent {
   private modal = inject(NzModalService);
   private toaster = inject(ToastrService);
   connectionRequest : any;
-  baseUrl : any = 'http://localhost:3000/';
+  baseUrl : any = 'http://82.29.165.214:3000/';
  
 
   ngOnInit(){
@@ -22,7 +22,7 @@ export class ConnectionsComponent {
   }
 
   getConnections(){
-    this.http.get('http://localhost:3000/request/connections', {withCredentials : true})
+    this.http.get('http://82.29.165.214:3000/request/connections', {withCredentials : true})
     .subscribe({
       next: (response:any) => {
         if(response.success){

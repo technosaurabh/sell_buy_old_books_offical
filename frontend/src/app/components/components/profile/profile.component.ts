@@ -14,7 +14,7 @@ export class ProfileComponent {
 
 
   ngOnInit(){
-    this.http.get('http://localhost:3000/profile', {withCredentials : true})
+    this.http.get('http://82.29.165.214:3000/profile', {withCredentials : true})
     .subscribe({
       next: (response:any) => {
         console.log('Login Success ✅', response);
